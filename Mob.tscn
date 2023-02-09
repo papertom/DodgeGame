@@ -1,0 +1,57 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://art/enemyUpgrade/enemyUpgrade3.png" type="Texture" id=1]
+[ext_resource path="res://art/enemyUpgrade/enemyUpgrade2.png" type="Texture" id=2]
+[ext_resource path="res://art/enemyUpgrade/enemyUpgrade6.png" type="Texture" id=3]
+[ext_resource path="res://art/enemyUpgrade/enemyUpgrade8.png" type="Texture" id=4]
+[ext_resource path="res://art/enemyUpgrade/enemyUpgrade7.png" type="Texture" id=5]
+[ext_resource path="res://art/enemyUpgrade/enemyUpgrade5.png" type="Texture" id=6]
+[ext_resource path="res://Mob.gd" type="Script" id=7]
+[ext_resource path="res://art/enemyUpgrade/enemyUpgrade1.png" type="Texture" id=8]
+[ext_resource path="res://art/enemyUpgrade/enemyUpgrade4.png" type="Texture" id=9]
+[ext_resource path="res://art/enemyUpgrade/enemyUpgrade9.png" type="Texture" id=10]
+[ext_resource path="res://art/enemyUpgrade/enemyUpgrade11.png" type="Texture" id=11]
+[ext_resource path="res://art/enemyUpgrade/enemyUpgrade12.png" type="Texture" id=12]
+[ext_resource path="res://art/enemyUpgrade/enemyUpgrade13.png" type="Texture" id=13]
+[ext_resource path="res://art/enemyUpgrade/enemyUpgrade10.png" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "eye",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "mouth",
+"speed": 8.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 38.0
+height = 6.0
+
+[node name="Mob" type="RigidBody2D" groups=["mobs"]]
+position = Vector2( 0, -1 )
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 2.5, 2.5 )
+frames = SubResource( 1 )
+animation = "mouth"
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
