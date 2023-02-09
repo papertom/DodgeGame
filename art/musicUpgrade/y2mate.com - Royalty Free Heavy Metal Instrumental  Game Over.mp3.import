@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/y2mate.com - Royalty Free Heavy Metal Instrumental  Game Over.mp3-e1635d93232e88871a7e25268c3744a9.mp3str"
+
+[deps]
+
+source_file="res://art/musicUpgrade/y2mate.com - Royalty Free Heavy Metal Instrumental  Game Over.mp3"
+dest_files=[ "res://.import/y2mate.com - Royalty Free Heavy Metal Instrumental  Game Over.mp3-e1635d93232e88871a7e25268c3744a9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
